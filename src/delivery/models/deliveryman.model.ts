@@ -12,7 +12,7 @@ export class Deliveryman {
   @Column()
   lastName: string;
 
-  @Column({ default: true })
+  @Column({ default: false })
   isActive: boolean;
 
   @OneToMany(() => Order, (order) => order.deliveryman, {
@@ -30,5 +30,25 @@ export class Deliveryman {
       throw new Error('Exceeded the number of orders');
     }
     this.orders.push(order);
+  }
+
+  setStatus(newStatus: boolean) {
+    if (
+      this.isActive === true &&
+      newStatus === false &&
+      this.orders.length > 0
+    ) {
+      throw new Error('Deliverman has orders');
+    }
+    this.isActive = newStatus;
+  }
+
+  addNewMessageToOrders(message: string) {
+    this.orders.forEach((order) =>
+      order.addInfoToDescription(`
+		${message}
+		${this.firstName} ${this.lastName}
+  	  `),
+    );
   }
 }

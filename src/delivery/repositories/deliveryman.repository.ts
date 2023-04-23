@@ -22,6 +22,9 @@ export class DeliverymanRepository {
     return this.deliveryMan.findOne({
       where: {
         id: deliverymanId,
+        orders: {
+          isActive: true,
+        },
       },
       relations: {
         orders: true,

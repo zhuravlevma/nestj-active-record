@@ -38,4 +38,26 @@ export class Order {
       throw new Error('The length of the name is less than 3');
     }
   }
+
+  setNewStatus(newStatus: boolean) {
+    if (newStatus === true) {
+      this.deliver();
+    } else {
+      this.return();
+    }
+  }
+
+  addInfoToDescription(info: string) {
+    this.description += '\n' + info;
+  }
+
+  return() {
+    this.isActive = false;
+    this.addInfoToDescription('This order has been returned :(');
+  }
+
+  deliver() {
+    this.isActive = false;
+    this.addInfoToDescription('This order has been delivered.');
+  }
 }

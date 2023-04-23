@@ -26,4 +26,9 @@ export class OrdersRepository {
       relations: ['deliverymans'],
     });
   }
+
+  async save(order: Order) {
+    const saved = await this.ordersRepository.save(order);
+    return saved;
+  }
 }
