@@ -32,8 +32,7 @@ export class DeliverymanRepository {
     });
   }
 
-  async save(deliveryMan: Deliveryman) {
-    const saved = await this.deliveryMan.save(deliveryMan);
-    return saved;
+  save(deliveryMan: Deliveryman): Promise<Deliveryman> {
+    return this.deliveryMan.save(deliveryMan);
   }
 }

@@ -1,4 +1,11 @@
+import { IsBoolean, IsOptional, IsString } from 'class-validator';
+
 export class UpdateOrderDto {
-  isActive: boolean;
+  @IsBoolean()
+  @IsOptional()
+  isActive?: boolean;
+
+  @IsString()
+  @IsOptional()
   description: string;
 }

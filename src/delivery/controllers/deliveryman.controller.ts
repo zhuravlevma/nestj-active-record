@@ -45,7 +45,7 @@ export class DeliverymanController {
   updateDeliveryman(
     @Param('deliverymanId') deliverymanId: string,
     @Body() updateDeliveryManDto: UpdateDeliverymanDto,
-  ) {
+  ): Promise<Deliveryman> {
     return this.deliverymanService.updateDeliveryman(
       +deliverymanId,
       updateDeliveryManDto,
@@ -56,7 +56,7 @@ export class DeliverymanController {
   updateDeliverymansOrders(
     @Param('deliverymanId') deliverymanId: string,
     @Body() updateDeliverymansOrdersDto: UpdateDeliverymansOrdersDto,
-  ) {
+  ): Promise<Deliveryman> {
     return this.deliverymanService.updateDeliverymansOrdersDto(
       +deliverymanId,
       updateDeliverymansOrdersDto,

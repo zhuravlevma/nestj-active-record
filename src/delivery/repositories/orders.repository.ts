@@ -10,10 +10,6 @@ export class OrdersRepository {
     private ordersRepository: Repository<Order>,
   ) {}
 
-  createOrder(order: Order): Promise<Order> {
-    return this.ordersRepository.save(order);
-  }
-
   findAllOrders(): Promise<Order[]> {
     return this.ordersRepository.find();
   }
@@ -23,12 +19,13 @@ export class OrdersRepository {
       where: {
         id: orderId,
       },
-      relations: ['deliverymans'],
+      relations: {
+        deliveryman: true,
+      },
     });
   }
 
   async save(order: Order) {
-    const saved = await this.ordersRepository.save(order);
-    return saved;
+    return this.ordersRepository.save(order);
   }
 }
