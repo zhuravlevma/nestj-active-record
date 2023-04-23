@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User, UserBank, UserTravel } from './user.model';
+import { User } from './user.model';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class UsersService {
+export class UsersRepository {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
@@ -18,12 +18,8 @@ export class UsersService {
     return this.usersRepository.findOneBy({ id });
   }
 
-  findAllTravel(): Promise<UserTravel[]> {
-    return this.usersRepository.find();
-  }
-
-  findAllBank(): Promise<UserBank[]> {
-    return this.usersRepository.find();
+  create(user: User) {
+    return this.usersRepository.save(user);
   }
 
   async remove(id: number): Promise<void> {
