@@ -52,7 +52,6 @@ export class Order {
   }
 
   return() {
-    this.isActive = false;
     this.addInfoToDescription('This order has been returned :(');
   }
 
