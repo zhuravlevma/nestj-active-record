@@ -44,11 +44,11 @@ export class Deliveryman {
   }
 
   addNewMessageToOrders(message: string) {
-    this.orders.forEach((order) =>
+    for (const order of this.orders) {
       order.addInfoToDescription(`
 		${message}
 		${this.firstName} ${this.lastName}
-  	  `),
-    );
+  	  `);
+    }
   }
 }
