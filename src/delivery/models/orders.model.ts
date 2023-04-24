@@ -39,7 +39,7 @@ export class Order {
     }
   }
 
-  setNewStatus(newStatus: boolean) {
+  changeStatus(newStatus: boolean) {
     if (newStatus === true) {
       this.deliver();
     } else {

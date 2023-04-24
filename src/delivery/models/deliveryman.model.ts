@@ -32,7 +32,7 @@ export class Deliveryman {
     this.orders.push(order);
   }
 
-  setStatus(newStatus: boolean) {
+  changeStatus(newStatus: boolean) {
     if (
       this.isActive === true &&
       newStatus === false &&

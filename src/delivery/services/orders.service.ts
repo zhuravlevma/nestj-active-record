@@ -24,7 +24,7 @@ export class OrdersService {
     );
 
     updateOrderDto.isActive !== undefined ??
-      order.setNewStatus(updateOrderDto.isActive);
+      order.changeStatus(updateOrderDto.isActive);
 
     updateOrderDto.description !== undefined ??
       order.addInfoToDescription(updateOrderDto.description);

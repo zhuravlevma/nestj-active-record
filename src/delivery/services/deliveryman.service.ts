@@ -58,7 +58,7 @@ export class DeliverymanService {
         );
 
       updateDeliveryManDto.isActive !== undefined ??
-        deliverymanWithOrders.setStatus(updateDeliveryManDto.isActive);
+        deliverymanWithOrders.changeStatus(updateDeliveryManDto.isActive);
 
       updateDeliveryManDto.firstName !== undefined ??
         (deliverymanWithOrders.firstName = updateDeliveryManDto.firstName);
