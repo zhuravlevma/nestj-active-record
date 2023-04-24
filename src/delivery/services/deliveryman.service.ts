@@ -36,9 +36,10 @@ export class DeliverymanService {
           deliverymanId,
         );
 
-      deliverymanWithOrders.addOrder(
-        new Order(createOrderDto.name, createOrderDto.description),
-      );
+      const order = new Order(createOrderDto.name, createOrderDto.description);
+      order.checkName();
+
+      deliverymanWithOrders.addOrder(order);
 
       return await this.deliverymanRepository.save(deliverymanWithOrders);
     } catch (error) {

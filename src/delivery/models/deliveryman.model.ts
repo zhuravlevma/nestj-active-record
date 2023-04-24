@@ -26,7 +26,6 @@ export class Deliveryman {
   }
 
   addOrder(order: Order) {
-    order.checkName();
     if (this.orders.length > 3) {
       throw new Error('Exceeded the number of orders');
     }
