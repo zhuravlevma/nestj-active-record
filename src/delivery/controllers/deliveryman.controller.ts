@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { DeliverymanService } from '../services/deliveryman.service';
 import { Deliveryman } from '../models/deliveryman.model';
-import { CreateDeliveryManDto } from '../dtos/request/create-deliveryman.dto';
+import { CreateDeliveryManDto } from '../dtos/create-deliveryman.dto';
 import { CreateOrderDto } from '../dtos/request/create-order.dto';
 import { UpdateDeliverymanDto } from '../dtos/request/update-deliveryman.dto';
 import { UpdateDeliverymansOrdersDto } from '../dtos/request/update-deliverymans-orders.dto';

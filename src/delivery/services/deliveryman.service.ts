@@ -3,7 +3,7 @@ import { Order } from '../models/orders.model';
 import { CreateOrderDto } from '../dtos/request/create-order.dto';
 import { DeliverymanRepository } from '../repositories/deliveryman.repository';
 import { Deliveryman } from '../models/deliveryman.model';
-import { CreateDeliveryManDto } from '../dtos/request/create-deliveryman.dto';
+import { CreateDeliveryManDto } from '../dtos/create-deliveryman.dto';
 import { UpdateDeliverymanDto } from '../dtos/request/update-deliveryman.dto';
 import { UpdateDeliverymansOrdersDto } from '../dtos/request/update-deliverymans-orders.dto';
 
