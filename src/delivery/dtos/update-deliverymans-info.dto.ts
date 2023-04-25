@@ -8,8 +8,4 @@ export class UpdateDeliverymansInfoDto {
   @IsString()
   @IsOptional()
   lastName?: string;
-
-  @IsString()
-  @IsOptional()
-  isActive?: boolean;
 }

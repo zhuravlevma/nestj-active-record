@@ -48,7 +48,7 @@ export class DeliverymanService {
     }
   }
 
-  async updateDeliveryman(
+  async updateDeliverymansInfo(
     deliverymanId: number,
     updateDeliveryManDto: UpdateDeliverymansInfoDto,
   ): Promise<Deliveryman> {
@@ -57,9 +57,6 @@ export class DeliverymanService {
         await this.deliverymanRepository.findDeliverymanByIdWithOrders(
           deliverymanId,
         );
-
-      updateDeliveryManDto.isActive !== undefined ??
-        deliverymanWithOrders.changeStatus(updateDeliveryManDto.isActive);
 
       updateDeliveryManDto.firstName !== undefined ??
         (deliverymanWithOrders.firstName = updateDeliveryManDto.firstName);

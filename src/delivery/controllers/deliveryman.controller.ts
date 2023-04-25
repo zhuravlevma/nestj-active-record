@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { DeliverymanService } from '../services/deliveryman.service';
 import { Deliveryman } from '../models/deliveryman.model';
 import { CreateDeliveryManDto } from '../dtos/create-deliveryman.dto';
@@ -43,11 +35,11 @@ export class DeliverymanController {
   }
 
   @Patch('/:deliverymanId')
-  updateDeliveryman(
+  updateDeliverymansInfo(
     @Param('deliverymanId') deliverymanId: string,
     @Body() updateDeliveryManDto: UpdateDeliverymansInfoDto,
   ): Promise<Deliveryman> {
-    return this.deliverymanService.updateDeliveryman(
+    return this.deliverymanService.updateDeliverymansInfo(
       +deliverymanId,
       updateDeliveryManDto,
     );
