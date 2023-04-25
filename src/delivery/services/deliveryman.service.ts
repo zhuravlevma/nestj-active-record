@@ -4,8 +4,9 @@ import { DeliverymanRepository } from '../repositories/deliveryman.repository';
 import { Deliveryman } from '../models/deliveryman.model';
 import { CreateDeliveryManDto } from '../dtos/create-deliveryman.dto';
 import { CreateOrderDto } from '../dtos/create-order.dto';
-import { UpdateDeliverymanDto } from '../dtos/update-deliveryman.dto';
+import { UpdateDeliverymansInfoDto } from '../dtos/update-deliverymans-info.dto';
 import { UpdateDeliverymansOrdersDto } from '../dtos/update-deliverymans-orders.dto';
+import { ChangeDeliverymansStatusDto } from '../dtos/change-deliverymans-status.dto';
 
 @Injectable()
 export class DeliverymanService {
@@ -49,7 +50,7 @@ export class DeliverymanService {
 
   async updateDeliveryman(
     deliverymanId: number,
-    updateDeliveryManDto: UpdateDeliverymanDto,
+    updateDeliveryManDto: UpdateDeliverymansInfoDto,
   ): Promise<Deliveryman> {
     try {
       const deliverymanWithOrders =
@@ -65,6 +66,23 @@ export class DeliverymanService {
 
       updateDeliveryManDto.lastName !== undefined ??
         (deliverymanWithOrders.lastName = updateDeliveryManDto.lastName);
+
+      return await this.deliverymanRepository.save(deliverymanWithOrders);
+    } catch (error) {
+      return error.message;
+    }
+  }
+
+  async changeDeliverymansStatus(
+    deliverymanId: number,
+    changeDeliverymansStatusDto: ChangeDeliverymansStatusDto,
+  ): Promise<Deliveryman> {
+    try {
+      const deliverymanWithOrders =
+        await this.deliverymanRepository.findDeliverymanByIdWithOrders(
+          deliverymanId,
+        );
+      deliverymanWithOrders.changeStatus(changeDeliverymansStatusDto.isActive);
 
       return await this.deliverymanRepository.save(deliverymanWithOrders);
     } catch (error) {

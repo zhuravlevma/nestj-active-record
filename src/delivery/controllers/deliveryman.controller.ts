@@ -11,8 +11,9 @@ import { DeliverymanService } from '../services/deliveryman.service';
 import { Deliveryman } from '../models/deliveryman.model';
 import { CreateDeliveryManDto } from '../dtos/create-deliveryman.dto';
 import { CreateOrderDto } from '../dtos/create-order.dto';
-import { UpdateDeliverymanDto } from '../dtos/update-deliveryman.dto';
+import { UpdateDeliverymansInfoDto } from '../dtos/update-deliverymans-info.dto';
 import { UpdateDeliverymansOrdersDto } from '../dtos/update-deliverymans-orders.dto';
+import { ChangeDeliverymansStatusDto } from '../dtos/change-deliverymans-status.dto';
 
 @Controller('deliverymans')
 export class DeliverymanController {
@@ -44,11 +45,22 @@ export class DeliverymanController {
   @Patch('/:deliverymanId')
   updateDeliveryman(
     @Param('deliverymanId') deliverymanId: string,
-    @Body() updateDeliveryManDto: UpdateDeliverymanDto,
+    @Body() updateDeliveryManDto: UpdateDeliverymansInfoDto,
   ): Promise<Deliveryman> {
     return this.deliverymanService.updateDeliveryman(
       +deliverymanId,
       updateDeliveryManDto,
+    );
+  }
+
+  @Patch('/:deliverymanId/status')
+  changeDeliverymansStatus(
+    @Param('deliverymanId') deliverymanId: string,
+    @Body() changeDeliverymansStatusDto: ChangeDeliverymansStatusDto,
+  ): Promise<Deliveryman> {
+    return this.deliverymanService.changeDeliverymansStatus(
+      +deliverymanId,
+      changeDeliverymansStatusDto,
     );
   }
 
