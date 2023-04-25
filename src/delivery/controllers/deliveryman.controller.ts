@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { DeliverymanService } from '../services/deliveryman.service';
 import { Deliveryman } from '../models/deliveryman.model';
-import { CreateDeliveryManDto } from '../dtos/create-deliveryman.dto';
+import { CreateDeliverymanDto } from '../dtos/create-deliveryman.dto';
 import { CreateOrderDto } from '../dtos/create-order.dto';
 import { UpdateDeliverymansInfoDto } from '../dtos/update-deliverymans-info.dto';
 import { UpdateDeliverymansOrdersDto } from '../dtos/update-deliverymans-orders.dto';
@@ -17,10 +17,10 @@ export class DeliverymanController {
   }
 
   @Post('/')
-  addDeliveryMan(
-    @Body() createDeliveryManDto: CreateDeliveryManDto,
+  createDeliveryMan(
+    @Body() createDeliveryManDto: CreateDeliverymanDto,
   ): Promise<Deliveryman> {
-    return this.deliverymanService.addDeliveryMan(createDeliveryManDto);
+    return this.deliverymanService.createDeliveryMan(createDeliveryManDto);
   }
 
   @Post('/:deliverymanId/orders')

@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateDeliveryManDto {
+export class CreateDeliverymanDto {
   @IsString()
   @IsNotEmpty()
   firstName: string;

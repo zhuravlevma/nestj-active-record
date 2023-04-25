@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Order } from '../models/orders.model';
 import { DeliverymanRepository } from '../repositories/deliveryman.repository';
 import { Deliveryman } from '../models/deliveryman.model';
-import { CreateDeliveryManDto } from '../dtos/create-deliveryman.dto';
+import { CreateDeliverymanDto } from '../dtos/create-deliveryman.dto';
 import { CreateOrderDto } from '../dtos/create-order.dto';
 import { UpdateDeliverymansInfoDto } from '../dtos/update-deliverymans-info.dto';
 import { UpdateDeliverymansOrdersDto } from '../dtos/update-deliverymans-orders.dto';
@@ -16,8 +16,8 @@ export class DeliverymanService {
     return this.deliverymanRepository.findAllDeliveryMans();
   }
 
-  addDeliveryMan(
-    createDeliveryManDto: CreateDeliveryManDto,
+  createDeliveryMan(
+    createDeliveryManDto: CreateDeliverymanDto,
   ): Promise<Deliveryman> {
     return this.deliverymanRepository.createDeliveryMan(
       new Deliveryman(
