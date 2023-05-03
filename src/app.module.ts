@@ -1,26 +1,30 @@
 import { Module } from '@nestjs/common';
+import { AccountingOrderModule } from './modules/accounting-order/accounting-order.module';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { DeliveryModule } from './delivery/delivery.module';
-import { Deliveryman } from './delivery/models/deliveryman.model';
-import { Order } from './delivery/models/orders.model';
+import { Deliveryman } from './models/deliveryman.model';
+import { Order } from './models/orders.model';
+import { DeliverymanModule } from './modules/deliveryman/deliveryman.module';
+import { config } from './config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      load: [config],
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'maksim',
-      password: '123321',
-      database: 'postgres',
+      host: config().database.host,
+      port: config().database.port,
+      username: config().database.username,
+      password: config().database.password,
+      database: config().database.name,
       entities: [Order, Deliveryman],
       synchronize: true,
+      logging: true,
     }),
-    DeliveryModule,
+    AccountingOrderModule,
+    DeliverymanModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}

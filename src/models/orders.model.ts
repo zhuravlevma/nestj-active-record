@@ -28,9 +28,14 @@ export class Order {
   @JoinColumn({ name: 'deliverymanId', referencedColumnName: 'id' })
   deliveryman: Deliveryman;
 
-  constructor(name: string, description: string) {
-    this.name = name;
-    this.description = description;
+  static create(name: string, description: string): Order {
+    const order = new Order();
+    order.name = name;
+    order.description = description;
+
+    order.checkName();
+
+    return order;
   }
 
   checkName() {

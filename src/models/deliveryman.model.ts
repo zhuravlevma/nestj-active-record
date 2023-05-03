@@ -20,9 +20,11 @@ export class Deliveryman {
   })
   orders: Order[];
 
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  static create(firstName: string, lastName: string): Deliveryman {
+    const deliveryman = new Deliveryman();
+    deliveryman.firstName = firstName;
+    deliveryman.lastName = lastName;
+    return deliveryman;
   }
 
   addOrder(order: Order) {

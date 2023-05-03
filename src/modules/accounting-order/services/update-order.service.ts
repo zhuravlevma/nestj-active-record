@@ -1,19 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { Order } from '../models/orders.model';
-import { OrdersRepository } from '../repositories/orders.repository';
-import { UpdateOrderDto } from '../dtos/update-order.dto';
+import { Order } from '../../../models/orders.model';
+import { OrdersRepository } from '../../../repositories/orders.repository';
+import { UpdateOrderDto } from 'src/dtos/update-order.dto';
 
 @Injectable()
-export class OrdersService {
+export class UpdateOrderService {
   constructor(private ordersRepository: OrdersRepository) {}
-
-  findAll(): Promise<Order[]> {
-    return this.ordersRepository.findAllOrders();
-  }
-
-  findOne(id: number): Promise<Order | null> {
-    return this.ordersRepository.findOrderByIdWithDeliveryman(id);
-  }
 
   async updateOrder(
     orderId: number,
