@@ -7,22 +7,21 @@ This is an example that was inspired by Vlad Kononov's book **[Learning DDD](htt
 ```mermaid
 
   flowchart TD
-    subgraph module1
-    subgraph web
+    subgraph module1[module]
+    subgraph web[web]
     controllers1(controllers) -- uses -->dtos1(dtos)
     end
     controllers1 -- uses --> services1(service </br> use case layer)
     end
 
-    subgraph module2
-    subgraph web2
+    subgraph module2[module]
+    subgraph web2[web]
     controllers2(controllers) -- uses -->dtos2(dtos)
     end
     controllers2 -- uses --> services2(service </br> use case layer)
     end
 
 
-    subgraph dal
     services1 -- uses --> respoitory1(repositories </br> dal)
     services1 -- uses --> model1(models </br> with domain logic)
     respoitory1 -- uses --> model1
@@ -30,8 +29,6 @@ This is an example that was inspired by Vlad Kononov's book **[Learning DDD](htt
     services2 -- uses --> respoitory2(repositories </br> dal)
     respoitory2 -- uses --> model2
     services2 -- uses --> model2(models </br> with domain logic)
-
-    end
 ```
 
 ## Installation
