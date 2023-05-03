@@ -10,4 +10,4 @@ import { RepositoriesModule } from 'src/repositories/repositories.module';
   controllers: [OrdersController],
   providers: [FindAllOrdersService, FindOneOrderService, UpdateOrderService],
 })
-export class AccountingOrderModule {}
+export class OrdersModule {}

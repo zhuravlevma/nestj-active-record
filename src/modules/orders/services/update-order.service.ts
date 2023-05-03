@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Order } from '../../../models/orders.model';
 import { OrdersRepository } from '../../../repositories/orders.repository';
-import { UpdateOrderDto } from 'src/modules/accounting-order/web/dtos/update-order.dto';
+import { UpdateOrderDto } from 'src/modules/orders/web/dtos/update-order.dto';
 
 @Injectable()
 export class UpdateOrderService {

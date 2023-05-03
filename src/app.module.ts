@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AccountingOrderModule } from './modules/accounting-order/accounting-order.module';
+import { OrdersModule } from './modules/orders/orders.module';
 import { ConfigModule } from '@nestjs/config';
 import { DeliverymanModule } from './modules/deliveryman/deliveryman.module';
 import { config } from './config';
@@ -9,7 +9,7 @@ import { config } from './config';
     ConfigModule.forRoot({
       load: [config],
     }),
-    AccountingOrderModule,
+    OrdersModule,
     DeliverymanModule,
   ],
 })
