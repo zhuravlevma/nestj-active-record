@@ -2,6 +2,38 @@
 This is an example that was inspired by Vlad Kononov's book **[Learning DDD](https://learning.oreilly.com/library/view/learning-domain-driven-design/9781098100124/)**. This is an attempt to make a small piece with a layered architecture and Active Recording.
 ![decision_tree](https://user-images.githubusercontent.com/44276887/234344566-9febf11d-347f-4fe0-98be-6e6cd878e596.png)
 
+
+## Schema
+```mermaid
+
+  flowchart TD
+    subgraph module1
+    subgraph web
+    controllers1(controllers) -- uses -->dtos1(dtos)
+    end
+    controllers1 -- uses --> services1(service </br> use case layer)
+    end
+
+    subgraph module2
+    subgraph web2
+    controllers2(controllers) -- uses -->dtos2(dtos)
+    end
+    controllers2 -- uses --> services2(service </br> use case layer)
+    end
+
+
+    subgraph dal
+    services1 -- uses --> respoitory1(repositories </br> dal)
+    services1 -- uses --> model1(models </br> with domain logic)
+    respoitory1 -- uses --> model1
+
+    services2 -- uses --> respoitory2(repositories </br> dal)
+    respoitory2 -- uses --> model2
+    services2 -- uses --> model2(models </br> with domain logic)
+
+    end
+```
+
 ## Installation
 
 ```bash

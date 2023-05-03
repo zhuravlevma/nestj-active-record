@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { DeliverymanRepository } from '../../../repositories/deliveryman.repository';
 import { Deliveryman } from '../../../models/deliveryman.model';
-import { UpdateDeliverymansOrdersDto } from 'src/dtos/update-deliverymans-orders.dto';
+import { UpdateDeliverymansOrdersDto } from 'src/modules/deliveryman/web/dtos/update-deliverymans-orders.dto';
 
 @Injectable()
 export class UpdateDeliverymansOrdersService {
