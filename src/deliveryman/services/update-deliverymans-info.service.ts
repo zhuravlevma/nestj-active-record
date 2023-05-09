@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { DeliverymanRepository } from '../../../repositories/deliveryman.repository';
-import { Deliveryman } from '../../../models/deliveryman.model';
-import { UpdateDeliverymansInfoDto } from 'src/modules/deliveryman/web/dtos/update-deliverymans-info.dto';
+import { DeliverymanRepository } from '../dal/deliveryman.repository';
+import { Deliveryman } from '../../__typeorm/deliveryman.model';
+import { UpdateDeliverymansInfoDto } from 'src/deliveryman/web/dtos/update-deliverymans-info.dto';
 
 @Injectable()
 export class UpdateDeliverymansInfoService {
   constructor(private deliverymanRepository: DeliverymanRepository) {}
 
   async updateDeliverymansInfo(
-    deliverymanId: number,
+    deliverymanId: string,
     updateDeliveryManDto: UpdateDeliverymansInfoDto,
   ): Promise<Deliveryman> {
     try {

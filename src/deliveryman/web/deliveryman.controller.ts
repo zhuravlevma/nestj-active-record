@@ -1,16 +1,16 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
-import { ChangeDeliverymansStatusDto } from 'src/modules/deliveryman/web/dtos/change-deliverymans-status.dto';
-import { CreateDeliverymanDto } from 'src/modules/deliveryman/web/dtos/create-deliveryman.dto';
-import { CreateOrderDto } from 'src/modules/deliveryman/web/dtos/create-order.dto';
-import { UpdateDeliverymansInfoDto } from 'src/modules/deliveryman/web/dtos/update-deliverymans-info.dto';
-import { UpdateDeliverymansOrdersDto } from 'src/modules/deliveryman/web/dtos/update-deliverymans-orders.dto';
-import { Deliveryman } from 'src/models/deliveryman.model';
-import { AddOrderToDeliverymanService } from 'src/modules/deliveryman/services/add-order-to-deliveryman.service';
-import { ChangeDeliverymansStatusService } from 'src/modules/deliveryman/services/change-deliverymans-status';
-import { CreateDeliverymanService } from 'src/modules/deliveryman/services/create-deliveryman.service';
-import { FindAllDeliverymansService } from 'src/modules/deliveryman/services/find-all-deliverymans';
-import { UpdateDeliverymansInfoService } from 'src/modules/deliveryman/services/update-deliverymans-info.service';
-import { UpdateDeliverymansOrdersService } from 'src/modules/deliveryman/services/update-deliverymans-orders.service';
+import { ChangeDeliverymansStatusDto } from 'src/deliveryman/web/dtos/change-deliverymans-status.dto';
+import { CreateDeliverymanDto } from 'src/deliveryman/web/dtos/create-deliveryman.dto';
+import { CreateOrderDto } from 'src/deliveryman/web/dtos/create-order.dto';
+import { UpdateDeliverymansInfoDto } from 'src/deliveryman/web/dtos/update-deliverymans-info.dto';
+import { UpdateDeliverymansOrdersDto } from 'src/deliveryman/web/dtos/update-deliverymans-orders.dto';
+import { Deliveryman } from 'src/__typeorm/deliveryman.model';
+import { AddOrderToDeliverymanService } from 'src/deliveryman/services/add-order-to-deliveryman.service';
+import { ChangeDeliverymansStatusService } from 'src/deliveryman/services/change-deliverymans-status';
+import { CreateDeliverymanService } from 'src/deliveryman/services/create-deliveryman.service';
+import { FindAllDeliverymansService } from 'src/deliveryman/services/find-all-deliverymans';
+import { UpdateDeliverymansInfoService } from 'src/deliveryman/services/update-deliverymans-info.service';
+import { UpdateDeliverymansOrdersService } from 'src/deliveryman/services/update-deliverymans-orders.service';
 
 @Controller('deliverymans')
 export class DeliverymanController {
@@ -43,7 +43,7 @@ export class DeliverymanController {
     @Body() createDeliveryManDto: CreateOrderDto,
   ): Promise<Deliveryman> {
     return this.addOrderToDeliverymanService.addOrderToDeliveryman(
-      +deliverymanId,
+      deliverymanId,
       createDeliveryManDto,
     );
   }
@@ -54,7 +54,7 @@ export class DeliverymanController {
     @Body() updateDeliveryManDto: UpdateDeliverymansInfoDto,
   ): Promise<Deliveryman> {
     return this.updateDeliverymansInfoService.updateDeliverymansInfo(
-      +deliverymanId,
+      deliverymanId,
       updateDeliveryManDto,
     );
   }
@@ -65,7 +65,7 @@ export class DeliverymanController {
     @Body() changeDeliverymansStatusDto: ChangeDeliverymansStatusDto,
   ): Promise<Deliveryman> {
     return this.changeDeliverymansStatusService.changeDeliverymansStatus(
-      +deliverymanId,
+      deliverymanId,
       changeDeliverymansStatusDto,
     );
   }
@@ -76,7 +76,7 @@ export class DeliverymanController {
     @Body() updateDeliverymansOrdersDto: UpdateDeliverymansOrdersDto,
   ): Promise<Deliveryman> {
     return this.updateDeliverymansOrdersService.updateDeliverymansOrdersDto(
-      +deliverymanId,
+      deliverymanId,
       updateDeliverymansOrdersDto,
     );
   }

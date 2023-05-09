@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm';
-import { Order } from '../models/orders.model';
+import { Order } from '../../__typeorm/orders.model';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
 
@@ -14,7 +14,7 @@ export class OrdersRepository {
     return this.ordersRepository.find();
   }
 
-  findOrderByIdWithDeliveryman(orderId: number): Promise<Order> {
+  findOrderByIdWithDeliveryman(orderId: string): Promise<Order> {
     return this.ordersRepository.findOne({
       where: {
         id: orderId,

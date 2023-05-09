@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { Order } from '../../../models/orders.model';
-import { DeliverymanRepository } from '../../../repositories/deliveryman.repository';
-import { Deliveryman } from '../../../models/deliveryman.model';
-import { CreateOrderDto } from 'src/modules/deliveryman/web/dtos/create-order.dto';
+import { Order } from '../../__typeorm/orders.model';
+import { DeliverymanRepository } from '../dal/deliveryman.repository';
+import { Deliveryman } from '../../__typeorm/deliveryman.model';
+import { CreateOrderDto } from 'src/deliveryman/web/dtos/create-order.dto';
 
 @Injectable()
 export class AddOrderToDeliverymanService {
   constructor(private deliverymanRepository: DeliverymanRepository) {}
 
   async addOrderToDeliveryman(
-    deliverymanId: number,
+    deliverymanId: string,
     createOrderDto: CreateOrderDto,
   ): Promise<Deliveryman> {
     try {

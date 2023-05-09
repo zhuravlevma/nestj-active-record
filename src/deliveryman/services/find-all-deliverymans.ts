@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { DeliverymanRepository } from '../../../repositories/deliveryman.repository';
-import { Deliveryman } from '../../../models/deliveryman.model';
+import { DeliverymanRepository } from '../dal/deliveryman.repository';
+import { Deliveryman } from '../../__typeorm/deliveryman.model';
 
 @Injectable()
 export class FindAllDeliverymansService {

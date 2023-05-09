@@ -9,8 +9,8 @@ import { Deliveryman } from './deliveryman.model';
 
 @Entity('orders')
 export class Order {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column()
   name: string;
@@ -22,7 +22,7 @@ export class Order {
   isActive: boolean;
 
   @Column()
-  deliverymanId: number;
+  deliverymanId: string;
 
   @ManyToOne(() => Deliveryman, (deliveryMan) => deliveryMan.orders)
   @JoinColumn({ name: 'deliverymanId', referencedColumnName: 'id' })
