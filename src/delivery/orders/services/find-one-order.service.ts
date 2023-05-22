@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Order } from '../../__typeorm/orders.model';
 import { OrdersRepository } from '../dal/orders.repository';
+import { Order } from 'src/delivery/__models__/orders.model';
 
 @Injectable()
 export class FindOneOrderService {

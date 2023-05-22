@@ -1,22 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { DeliverymanRepository } from '../dal/deliveryman.repository';
-import { Deliveryman } from '../../__typeorm/deliveryman.model';
-import { ChangeDeliverymansStatusDto } from '../web/dtos/change-deliverymans-status.dto';
+import { Deliveryman } from '../../__models__/deliveryman.model';
+import { CreateOrderDto } from 'src/delivery/deliveryman/dtos/create-order.dto';
+import { Order } from 'src/delivery/__models__/orders.model';
 
 @Injectable()
-export class ChangeDeliverymansStatusService {
+export class AddOrderToDeliverymanService {
   constructor(private deliverymanRepository: DeliverymanRepository) {}
 
-  async changeDeliverymansStatus(
+  async addOrderToDeliveryman(
     deliverymanId: string,
-    changeDeliverymansStatusDto: ChangeDeliverymansStatusDto,
+    createOrderDto: CreateOrderDto,
   ): Promise<Deliveryman> {
     try {
       const deliverymanWithOrders =
         await this.deliverymanRepository.findDeliverymanByIdWithOrders(
           deliverymanId,
         );
-      deliverymanWithOrders.changeStatus(changeDeliverymansStatusDto.isActive);
+
+      deliverymanWithOrders.addOrder(
+        Order.create(createOrderDto.name, createOrderDto.description),
+      );
 
       return await this.deliverymanRepository.save(deliverymanWithOrders);
     } catch (error) {

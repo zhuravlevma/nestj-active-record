@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
-import { Deliveryman } from '../../__typeorm/deliveryman.model';
+import { Deliveryman } from '../../__models__/deliveryman.model';
 
 @Injectable()
 export class DeliverymanRepository {

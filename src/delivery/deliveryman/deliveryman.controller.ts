@@ -1,16 +1,16 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
-import { ChangeDeliverymansStatusDto } from 'src/deliveryman/web/dtos/change-deliverymans-status.dto';
-import { CreateDeliverymanDto } from 'src/deliveryman/web/dtos/create-deliveryman.dto';
-import { CreateOrderDto } from 'src/deliveryman/web/dtos/create-order.dto';
-import { UpdateDeliverymansInfoDto } from 'src/deliveryman/web/dtos/update-deliverymans-info.dto';
-import { UpdateDeliverymansOrdersDto } from 'src/deliveryman/web/dtos/update-deliverymans-orders.dto';
-import { Deliveryman } from 'src/__typeorm/deliveryman.model';
-import { AddOrderToDeliverymanService } from 'src/deliveryman/services/add-order-to-deliveryman.service';
-import { ChangeDeliverymansStatusService } from 'src/deliveryman/services/change-deliverymans-status';
-import { CreateDeliverymanService } from 'src/deliveryman/services/create-deliveryman.service';
-import { FindAllDeliverymansService } from 'src/deliveryman/services/find-all-deliverymans';
-import { UpdateDeliverymansInfoService } from 'src/deliveryman/services/update-deliverymans-info.service';
-import { UpdateDeliverymansOrdersService } from 'src/deliveryman/services/update-deliverymans-orders.service';
+import { ChangeDeliverymansStatusDto } from 'src/delivery/deliveryman/dtos/change-deliverymans-status.dto';
+import { CreateDeliverymanDto } from 'src/delivery/deliveryman/dtos/create-deliveryman.dto';
+import { CreateOrderDto } from 'src/delivery/deliveryman/dtos/create-order.dto';
+import { UpdateDeliverymansInfoDto } from 'src/delivery/deliveryman/dtos/update-deliverymans-info.dto';
+import { UpdateDeliverymansOrdersDto } from 'src/delivery/deliveryman/dtos/update-deliverymans-orders.dto';
+import { Deliveryman } from 'src/delivery/__models__/deliveryman.model';
+import { AddOrderToDeliverymanService } from 'src/delivery/deliveryman/services/add-order-to-deliveryman.service';
+import { ChangeDeliverymansStatusService } from 'src/delivery/deliveryman/services/change-deliverymans-status';
+import { CreateDeliverymanService } from 'src/delivery/deliveryman/services/create-deliveryman.service';
+import { FindAllDeliverymansService } from 'src/delivery/deliveryman/services/find-all-deliverymans';
+import { UpdateDeliverymansInfoService } from 'src/delivery/deliveryman/services/update-deliverymans-info.service';
+import { UpdateDeliverymansOrdersService } from 'src/delivery/deliveryman/services/update-deliverymans-orders.service';
 
 @Controller('deliverymans')
 export class DeliverymanController {

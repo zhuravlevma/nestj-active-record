@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
-import { OrdersModule } from './orders/orders.module';
 import { ConfigModule } from '@nestjs/config';
-import { DeliverymanModule } from './deliveryman/deliveryman.module';
+import { DeliveryModule } from './delivery/delivery.module';
 import { config } from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Deliveryman } from './__typeorm/deliveryman.model';
-import { Order } from './__typeorm/orders.model';
+import { Deliveryman } from './delivery/__models__/deliveryman.model';
+import { Order } from './delivery/__models__/orders.model';
 
 @Module({
   imports: [
@@ -23,8 +22,7 @@ import { Order } from './__typeorm/orders.model';
       synchronize: true,
       logging: true,
     }),
-    OrdersModule,
-    DeliverymanModule,
+    DeliveryModule,
   ],
 })
 export class AppModule {}
